@@ -1,0 +1,3 @@
+- [x] Markdown YAML front matter
+- [x] Markdown code highlighting
+- [x] Categories (basic)
