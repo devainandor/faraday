@@ -24,7 +24,8 @@ def template_substitute(title, content):
         return '\n'.join(template.readlines()).format(
             title=title,
             content=content,
-            categories=content.metadata.get('categories'))
+            categories=content.metadata.get('categories', '').strip('[]'),
+            tags=content.metadata.get('tags', '').strip('[]'))
 
 
 def write_file(path, content):
