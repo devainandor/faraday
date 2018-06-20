@@ -11,7 +11,7 @@ def convert_file(path):
     with codecs.open(path, 'r', 'utf-8') as markdown_file:
         html = markdown2.markdown(
             '\n'.join(markdown_file.readlines()),
-            extras=['fenced-code-blocks', 'metadata'])
+            extras=['fenced-code-blocks', 'metadata', 'strike'])
     return template_substitute(get_title(path), html)
 
 
