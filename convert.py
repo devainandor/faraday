@@ -1,8 +1,9 @@
 import os
 import markdown2
 import codecs
+import sys
 
-SOURCE_DIR = 'site/source'
+SOURCE_DIR = sys.argv[1] or 'site/source'
 DEST_DIR = 'site/html'
 
 
@@ -32,7 +33,7 @@ def write_file(path, content):
 
 
 def get_source_paths():
-    return [os.path.join(SOURCE_DIR, f) for f in os.listdir(SOURCE_DIR) if f.endswith('.txt')]
+    return [os.path.join(SOURCE_DIR, f) for f in os.listdir(SOURCE_DIR) if f.endswith('.md')]
 
 
 def convert_path(path):
