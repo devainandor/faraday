@@ -12,6 +12,8 @@ def convert_file(path):
         html = markdown2.markdown(
             '\n'.join(markdown_file.readlines()),
             extras=['fenced-code-blocks', 'metadata', 'strike'])
+    if html.metadata.get('draft') == 'true':
+        return ''
     return template_substitute(get_title(path), html)
 
 
@@ -33,6 +35,8 @@ def generate_tags(raw_tags):
 
 
 def write_file(path, content):
+    if content == '':
+        return
     with codecs.open(convert_path(path), 'w', 'utf-8') as html_file:
         html_file.write(content)
 
