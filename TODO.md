@@ -1,3 +1,7 @@
 - [x] Markdown YAML front matter
 - [x] Markdown code highlighting
-- [x] Categories (basic)
+- [x] Categories and tags (basic)
+- [ ] layout/design (basic)
+- [ ] index page
+- [ ] about page
+- [x] do not compile drafts
