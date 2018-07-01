@@ -25,7 +25,11 @@ def template_substitute(title, content):
             title=title,
             content=content,
             categories=content.metadata.get('categories', '').strip('[]'),
-            tags=content.metadata.get('tags', '').strip('[]'))
+            tags=generate_tags(content.metadata.get('tags', '')))
+
+
+def generate_tags(raw_tags):
+    return ' '.join(['#' + tag for tag in raw_tags.strip('[]').split(', ')])
 
 
 def write_file(path, content):
