@@ -3,7 +3,7 @@ import markdown2
 import codecs
 import sys
 
-SOURCE_DIR = sys.argv[1] or 'site/source'
+SOURCE_DIR = (len(sys.argv) > 1 and sys.argv[1]) or 'site/source'
 DEST_DIR = 'site/html'
 
 
