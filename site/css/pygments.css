@@ -1,4 +1,4 @@
-.codehilite pre { background-color: #272822; padding: 1em }
+.codehilite pre { background-color: #272822; padding: 1em; line-height: 0.8; }
 .codehilite .hll { background-color: #272822; }
 .codehilite .c { color: #75715e } /* Comment */
 .codehilite .err { color: #960050; background-color: #1e0010 } /* Error */
