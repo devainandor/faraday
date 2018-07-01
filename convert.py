@@ -25,7 +25,7 @@ def get_title(path):
 def template_substitute(title, content):
     with codecs.open('site/templates/page.html', 'r', 'utf-8') as template:
         return '\n'.join(template.readlines()).format(
-            title=title,
+            title=title.replace('-', ' '),
             content=content,
             categories=content.metadata.get('categories', '').strip('[]'),
             tags=generate_tags(content.metadata.get('tags', '')),
@@ -55,7 +55,22 @@ def get_source_paths():
 
 
 def convert_path(path):
+    if path.endswith('.html'):
+        return path
     return path.replace(SOURCE_DIR, DEST_DIR).rsplit('.md', 1)[0] + '.html'
 
 
+def link_to(f):
+    return '<a href="{path}">{title}</a>'.format(
+        path=f,
+        title=f.replace('-', ' ')[0:-5]
+    )
+
+
+def generate_index():
+    with codecs.open('site/templates/index.html', 'r', 'utf-8') as template:
+        return '\n'.join(template.readlines()) + '\n'.join([link_to(f) for f in os.listdir(DEST_DIR) if f != 'index.html' and f.endswith('.html')])
+
+
 [write_file(f, convert_file(f)) for f in get_source_paths()]
+[write_file(os.path.join(DEST_DIR, 'index.html'), generate_index())]
