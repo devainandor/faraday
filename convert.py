@@ -18,7 +18,7 @@ def convert_file(path):
 
 
 def get_title(path):
-    return path.rsplit('/', 1)[1].rsplit('.txt', 1)[0]
+    return path.rsplit('/', 1)[1].rsplit('.md', 1)[0]
 
 
 def template_substitute(title, content):
@@ -46,7 +46,7 @@ def get_source_paths():
 
 
 def convert_path(path):
-    return path.replace(SOURCE_DIR, DEST_DIR).rsplit('.txt', 1)[0] + '.html'
+    return path.replace(SOURCE_DIR, DEST_DIR).rsplit('.md', 1)[0] + '.html'
 
 
 [write_file(f, convert_file(f)) for f in get_source_paths()]
