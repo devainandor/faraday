@@ -4,7 +4,7 @@ import codecs
 import sys
 
 SOURCE_DIR = (len(sys.argv) > 1 and sys.argv[1]) or 'site/source'
-DEST_DIR = 'site/html'
+DEST_DIR = 'site'
 
 
 def convert_file(path):

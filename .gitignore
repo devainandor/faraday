@@ -1,4 +1,4 @@
 .tags
 .ve/
-site/html/
+site/*.html
 site/images/
