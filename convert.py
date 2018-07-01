@@ -2,6 +2,7 @@ import os
 import markdown2
 import codecs
 import sys
+import datetime
 
 SOURCE_DIR = (len(sys.argv) > 1 and sys.argv[1]) or 'site/source'
 DEST_DIR = 'site'
@@ -27,7 +28,15 @@ def template_substitute(title, content):
             title=title,
             content=content,
             categories=content.metadata.get('categories', '').strip('[]'),
-            tags=generate_tags(content.metadata.get('tags', '')))
+            tags=generate_tags(content.metadata.get('tags', '')),
+            published_on=get_date(content.metadata['published_on']))
+
+
+def get_date(date):
+    return datetime.datetime.strftime(
+        datetime.datetime.fromisoformat(date),
+        '%Y %B %d %A, %H:%M (%Z)'
+    )
 
 
 def generate_tags(raw_tags):
