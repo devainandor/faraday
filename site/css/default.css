@@ -1,3 +1,35 @@
 img {
     max-width: 100%
 }
+
+html {
+    background: #f0f0f0;
+    color: #161616;
+    font-family: 'Inconsolata', monospace;
+    padding: 12rem;
+    padding-top: 3rem;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.tags {
+    text-decoration: underline;
+}
+
+code {
+    font-family: 'Inconsolata', monospace;
+}
+
+a {
+    color: #161616;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #595959;
+}
+
+header {
+    border-bottom: 1px solid #9d9d9d;
+}
